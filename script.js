@@ -17,7 +17,7 @@ function showInfo(data, tabletop) {
         parsed +=" src='"+item.Imagen+"'></div>"; 
         parsed +="<div class='item-desc'><h3 class='desc'>"+item.Marca+" "+item.Titulo+"</h3>"; 
         parsed +="<p>"+item.Descripcion+"</p>"; 
-        parsed +="<input type='text' class='price' value='"+item["Precio Bs F"].substring(2,item["Precio Bs F"].length-3).replace(",",'.').replace(",",'.')+" Bs.F' disabled='true'></div>"; 
+        parsed +="<input type='text' class='price' value='"+item["Precio Bs F"].substring(2,item["Precio Bs F"].length-3).replace(",",'.').replace(",",'.')+" Bs.' disabled='true'></div>"; 
         parsed +="<div class='item-qtd'><input type='button' class='btn' id='plus' value='-' onclick='process(-1,"+i+", "+item["Unidades en stock"]+")' />"; 
         parsed +="<input name='quant' class='quant' size='1' type='text' value='0' disabled='True' />"; 
         parsed +="<input type='button' class='btn' id='minus' value='+' onclick='process(1,"+i+", "+item["Unidades en stock"]+")'><br>"; 
@@ -27,7 +27,7 @@ function showInfo(data, tabletop) {
         parsed +=" src='"+item.Imagen+"' width='88' height='88'></div>"; 
         parsed +="<div class='item-desc'><h3 class='desc' style='color: #555'>"+item.Marca+" "+item.Titulo+"</h3>"; 
         parsed +="<p style='color: #555'>"+item.Descripcion+"</p>"; 
-        parsed +="<input type='text' class='price-out' value='"+item["Precio Bs F"].substring(2,item["Precio Bs F"].length-3).replace(",",'.').replace(",",'.')+" Bs.F' disabled='true'></div>"; 
+        parsed +="<input type='text' class='price-out' value='"+item["Precio Bs F"].substring(2,item["Precio Bs F"].length-3).replace(",",'.').replace(",",'.')+" Bs.' disabled='true'></div>"; 
         parsed +="<div class='item-qtd'><input type='button' class='btn' value='-' onclick='process(-1,"+i+", "+item["Unidades en stock"]+")'  disabled='True'/>"; 
         parsed +="<input name='quant' class='quant-out' size='1' type='text' value='0' disabled='True' />"; 
         parsed +="<input type='button' class='btn' value='+' onclick='process(1,"+i+", "+item["Unidades en stock"]+")' disabled='True'><br>"; 
@@ -57,7 +57,7 @@ function process(quant, i, max){
     		parseInt(document.getElementsByClassName("quant")[y].value.replace(".",'').replace(".",'')) * 
     		parseInt(document.getElementsByClassName("price")[y].value.replace(".",'').replace(".",'').substring(0,(document.getElementsByClassName("price")[y].value.length-3))));
     }
-    document.getElementById("total").value = parseInt(document.getElementById("total").value).toLocaleString("pt") + " Bs.F" ;
+    document.getElementById("total").value = parseInt(document.getElementById("total").value).toLocaleString("pt") + " Bs." ;
     msg();
 }
 
