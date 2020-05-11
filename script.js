@@ -6,7 +6,8 @@ function init() {
 }
 
 function showInfo(data, tabletop) {
-    console.log(data);
+    //console.log(data);
+    $( ".spinner" ).remove();
     var parsed = "";			
     let lista = document.getElementById('lista');
     var i=0;
