@@ -10,7 +10,7 @@ function init() {
     })
 }
 
-function showInfo(data.data, tabletop) {
+function showInfo(data, tabletop) {
     console.log(data.data);
     $( ".spinner" ).remove();
     var parsed = "";			
