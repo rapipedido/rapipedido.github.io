@@ -1,5 +1,4 @@
-var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQcaCBt2SjGSZHUqV9TyDoV66FyYZCGr6SPNgYoyKCjpqcobDMl0ip7D9GZPpICXWqdrFM3l_tf8I_1/pubhtml?gid=0&single=true';
-
+var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1KO--qj4tmVaqSnxhbgHhlx_ttqviLBzct5e9sYgDBNU/edit?usp=sharing';
 function init() {
     Tabletop.init( { key: publicSpreadsheetUrl,
                      callback: showInfo,
@@ -71,8 +70,8 @@ function msg(){
     		msg += "%0A"+ document.getElementsByClassName("quant")[y].value + "x " + document.getElementsByClassName("desc")[y].textContent;
     	}
 	}
-    msg += "%0A%0A" + "Total: " + document.getElementById("total").value;
-    msg += "%0A%0A" + "Tu pedido no esta confirmado,%0Aespera una respuesta para la confirmacion."
+    msg += "%0A%0A" + "*Total*: " + document.getElementById("total").value;
+    msg += "%0A%0A" + "Tu pedido no está confirmado,%0Aespera una respuesta para la confirmación."
     document.getElementById("btn_img").href = msg;
 }
 
