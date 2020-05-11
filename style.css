@@ -150,6 +150,9 @@ p{
     margin-left: 5%;
     margin-bottom: 24px;
 }
+.btn_enviar img {
+	height: 24px;
+}
 .price{
 	border: none;
 	background: white;
