@@ -10,13 +10,13 @@ function init() {
     })
 }
 
-function showInfo(data, tabletop) {
+function showInfo(data.data, tabletop) {
     console.log(data.data);
     $( ".spinner" ).remove();
     var parsed = "";			
     let lista = document.getElementById('lista');
     var i=0;
-  	$.each( data, function( y, item ) {
+  	$.each( data.data, function( y, item ) {
   		parsed += "<div class='item'><div class='div-item-img'>";
   		if(item["Unidades en stock"] > 0){
   			parsed += "<img class='item-img'";
