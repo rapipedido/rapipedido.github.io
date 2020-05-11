@@ -1,4 +1,4 @@
-var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1ZYNr6cqcAfShPwmXK1mnf3mcgv2i64-TfgxpDJH_zvs/edit?usp=sharing';
+var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQcaCBt2SjGSZHUqV9TyDoV66FyYZCGr6SPNgYoyKCjpqcobDMl0ip7D9GZPpICXWqdrFM3l_tf8I_1/pubhtml?gid=0&single=true';
 
 function init() {
     Tabletop.init( { key: publicSpreadsheetUrl,
