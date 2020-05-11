@@ -10,7 +10,7 @@ function init() {
 }
 
 function showInfo(data, tabletop) {
-    console.log(data);
+    console.log(data.data);
     $( ".spinner" ).remove();
     var parsed = "";			
     let lista = document.getElementById('lista');
