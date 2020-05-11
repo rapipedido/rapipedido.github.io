@@ -6,14 +6,14 @@ function init() {
 }
 
 function showInfo(data, tabletop) {
-    //console.log(data);
+    console.log(data);
     $( ".spinner" ).remove();
     var parsed = "";			
     let lista = document.getElementById('lista');
     var i=0;
   	$.each( data, function( y, item ) {
   		parsed += "<div class='item'><div class='div-item-img'>";
-  		if(item["Unidades en stock"]>0){
+  		if(item["Unidades en stock"] > 0){
   			parsed += "<img class='item-img'";
         parsed +=" src='"+item.Imagen+"'></div>"; 
         parsed +="<div class='item-desc'><h3 class='desc'>"+item.Marca+" "+item.Titulo+"</h3>"; 
