@@ -2,7 +2,7 @@ var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1KO--qj4tmVaq
 var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQcaCBt2SjGSZHUqV9TyDoV66FyYZCGr6SPNgYoyKCjpqcobDMl0ip7D9GZPpICXWqdrFM3l_tf8I_1/pub?output=csv';
 
 function init() {
-    console.log("version 0.15");
+    console.log("version 0.16");
     Papa.parse(publicSpreadsheetUrl, {
       download: true,
       header: true,
