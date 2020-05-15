@@ -78,7 +78,7 @@ function msg(){
     	}
 	}
     msg += "\r\n\r\n" + "*Total*: " + document.getElementById("total").value;
-    msg += "\r\n" + "Tu pedido no está confirmado,\r\nespera una respuesta para la confirmación."
+    msg += "\r\n\r\n" + "Tu pedido no está confirmado,\r\nespera una respuesta para la confirmación."
     document.getElementById("btn_img").href = base_url + encodeURIComponent(msg);
 }
 
