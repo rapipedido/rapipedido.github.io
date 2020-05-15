@@ -2,7 +2,7 @@ var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1KO--qj4tmVaq
 var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQcaCBt2SjGSZHUqV9TyDoV66FyYZCGr6SPNgYoyKCjpqcobDMl0ip7D9GZPpICXWqdrFM3l_tf8I_1/pub?output=csv';
 
 function init() {
-    console.log("version 0.15");
+    console.log("version 0.16");
     Papa.parse(publicSpreadsheetUrl, {
       download: true,
       header: true,
@@ -70,15 +70,16 @@ function process(quant, i, max){
 function msg(){
 	var d = new Date();
 	var months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-	var msg = "https://api.whatsapp.com/send?phone=+584147660652&text=*Pedido* - Fecha " + d.getDate() + "%20" + months[d.getMonth()] + "%20" + d.getFullYear();
+  var base_url = "https://wa.me/584147660652/?text="
+  var msg = "*PEDIDO* - Fecha " + d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear();
 	for(var y=0 ; y<document.getElementsByClassName("quant").length;y++){
 		if(parseInt(document.getElementsByClassName("quant")[y].value)>0){
-    		msg += "%0A"+ document.getElementsByClassName("quant")[y].value + "x " + document.getElementsByClassName("desc")[y].textContent;
+    		msg += "\r\n"+ document.getElementsByClassName("quant")[y].value + "x " + document.getElementsByClassName("desc")[y].textContent;
     	}
 	}
-    msg += "%0A%0A" + "*Total*: " + document.getElementById("total").value;
-    msg += "%0A%0A" + "Tu pedido no está confirmado,%0Aespera una respuesta para la confirmación."
-    document.getElementById("btn_img").href = msg;
+    msg += "\r\n\r\n" + "*Total*: " + document.getElementById("total").value;
+    msg += "\r\n\r\n" + "Tu pedido no está confirmado,\r\nespera una respuesta para la confirmación."
+    document.getElementById("btn_img").href = base_url + encodeURIComponent(msg);
 }
 
 
