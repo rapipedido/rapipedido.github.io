@@ -74,11 +74,11 @@ function msg(){
   var msg = "*PEDIDO* - Fecha " + d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear();
 	for(var y=0 ; y<document.getElementsByClassName("quant").length;y++){
 		if(parseInt(document.getElementsByClassName("quant")[y].value)>0){
-    		msg += "%0A"+ document.getElementsByClassName("quant")[y].value + "x " + document.getElementsByClassName("desc")[y].textContent;
+    		msg += "\r\n"+ document.getElementsByClassName("quant")[y].value + "x " + document.getElementsByClassName("desc")[y].textContent;
     	}
 	}
-    msg += "%0A%0A" + "*Total*: " + document.getElementById("total").value;
-    msg += "%0A%0A" + "Tu pedido no está confirmado,%0Aespera una respuesta para la confirmación."
+    msg += "\r\n\r\n" + "*Total*: " + document.getElementById("total").value;
+    msg += "\r\n" + "Tu pedido no está confirmado,\r\nespera una respuesta para la confirmación."
     document.getElementById("btn_img").href = base_url + encodeURIComponent(msg);
 }
 
