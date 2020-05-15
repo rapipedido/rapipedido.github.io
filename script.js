@@ -70,7 +70,7 @@ function process(quant, i, max){
 function msg(){
 	var d = new Date();
 	var months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-  var = base_url = "https://wa.me/584147660652/?text="
+  var base_url = "https://wa.me/584147660652/?text="
   var msg = "*PEDIDO* - Fecha " + d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear();
 	for(var y=0 ; y<document.getElementsByClassName("quant").length;y++){
 		if(parseInt(document.getElementsByClassName("quant")[y].value)>0){
