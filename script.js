@@ -2,7 +2,7 @@ var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1KO--qj4tmVaq
 var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQcaCBt2SjGSZHUqV9TyDoV66FyYZCGr6SPNgYoyKCjpqcobDMl0ip7D9GZPpICXWqdrFM3l_tf8I_1/pub?output=csv';
 
 function init() {
-    console.log("version 0.16");
+    console.log("version 0.17");
     Papa.parse(publicSpreadsheetUrl, {
       download: true,
       header: true,
@@ -20,13 +20,16 @@ function showInfo(data, tabletop) {
     var i=0;
   	$.each( data.data, function( y, item ) {
       $.trim(item["Precio Bs F"] = item["Precio Bs F"]); 
+      $.trim(item["Precio USD"] = item["Precio USD"]);
       $.trim(item["Unidades en stock"] = item["Unidades en stock"]);
       $.trim(item.Marca = item.Marca);
       $.trim(item.Titulo = item.Titulo);
       $.trim(item.Descripcion = item.Descripcion);
       if(item["Precio Bs F"] != "" && item.Marca != "" && item.Imagen != "" && item.Titulo != "" && item.Descripcion != "" && item["Unidades en stock"] != "" &&  item["Unidades en stock"] != "#VALUE!"&&  item["Precio Bs F"] != "#VALUE!"){
       	stock = item["Unidades en stock"];
-        precio = item["Precio Bs F"].substring(2,item["Precio Bs F"].length-3).replace(",",'.').replace(",",'.');
+        //precio = item["Precio Bs F"].substring(2,item["Precio Bs F"].length-3).replace(",",'.').replace(",",'.');
+        precio = currency(item["Precio Bs F"]);
+        precio_usd = currency(item["Precio USD"]);
         if(isNumberDot(precio) && $.isNumeric(parseInt(stock))){
           parsed += "<div class='item'><div class='div-item-img'>";
       		if(item["Unidades en stock"] > 0){
@@ -34,7 +37,7 @@ function showInfo(data, tabletop) {
             parsed +=" src='"+item.Imagen+"'></div>"; 
             parsed +="<div class='item-desc'><h3 class='desc'>"+item.Marca+" "+item.Titulo+"</h3>"; 
             parsed +="<p>"+item.Descripcion+"</p>"; 
-            parsed +="<input type='text' class='price' value='"+precio+" Bs.' disabled='true'></div>"; 
+            parsed +="<input type='text' class='price' value='"+precio+" Bs.' disabled='True'> | <span class='price'>$"+precio_usd+"</span></div>"; 
             parsed +="<div class='item-qtd'><input type='button' class='btn' id='plus' value='-' onclick='process(-1,"+i+", "+stock+")' />"; 
             parsed +="<input name='quant' class='quant' size='1' type='text' value='0' disabled='True' />"; 
             parsed +="<input type='button' class='btn' id='minus' value='+' onclick='process(1,"+i+", "+stock+")'><br>"; 
@@ -58,8 +61,7 @@ function showInfo(data, tabletop) {
 }
 
 function process(quant, i, max){
-    var val = parseInt
-(document.getElementsByClassName("quant")[i].value);
+    var val = parseInt(document.getElementsByClassName("quant")[i].value);
     val += quant;
     if(val < 0){
       document.getElementsByClassName("quant")[i].value = 0;
@@ -68,14 +70,13 @@ function process(quant, i, max){
     }else{
     	document.getElementsByClassName("quant")[i].value = val;
     }
-    var t = 
-    document.getElementById("total").value = 0;
+    var t = document.getElementById("total").value = 0;
     for(var y=0 ; y<document.getElementsByClassName("quant").length;y++){
     	document.getElementById("total").value = (parseInt(document.getElementById("total").value) + 
     		parseInt(document.getElementsByClassName("quant")[y].value.replace(".",'').replace(".",'')) * 
     		parseInt(document.getElementsByClassName("price")[y].value.replace(".",'').replace(".",'').substring(0,(document.getElementsByClassName("price")[y].value.length-3))));
     }
-    document.getElementById("total").value = parseInt(document.getElementById("total").value).toLocaleString("pt") + " Bs." ;
+    document.getElementById("total").value = parseInt(document.getElementById("total").value).toLocaleString("es") + " Bs." ;
     msg();
 }
 
