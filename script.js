@@ -32,8 +32,8 @@ function showInfo(data, tabletop) {
       if(item["Precio Bs F"] != "" && item.Marca != "" && item.Imagen != "" && item.Titulo != "" && item.Descripcion != "" && item["Unidades en stock"] != "" &&  item["Unidades en stock"] != "#VALUE!"&&  item["Precio Bs F"] != "#VALUE!"){
       	stock = item["Unidades en stock"];
         //precio = item["Precio Bs F"].substring(2,item["Precio Bs F"].length-3).replace(",",'.').replace(",",'.');
-        precio = VEF(item["Precio Bs F"]);
-        precio_usd = USD(item["Precio USD"]);
+        precio = VEF(item["Precio Bs F"]).format();
+        precio_usd = USD(item["Precio USD"]).format();
         if(isNumberDot(precio) && $.isNumeric(parseInt(stock))){
           parsed += "<div class='item'><div class='div-item-img'>";
       		if(item["Unidades en stock"] > 0){
@@ -78,9 +78,9 @@ function process(quant, i, max){
     for(var y=0 ; y<document.getElementsByClassName("quant").length;y++){
     	document.getElementById("total").value = (parseInt(document.getElementById("total").value) + 
     		parseInt(document.getElementsByClassName("quant")[y].value.replace(".",'').replace(".",'')) * 
-    		parseInt(document.getElementsByClassName("price")[y].value.replace(".",'').replace(".",'').substring(0,(document.getElementsByClassName("price")[y].value.length-3))));
+    		VEF(document.getElementsByClassName("price")[y].value));
     }
-    document.getElementById("total").value = parseInt(document.getElementById("total").value).toLocaleString("es") + " Bs." ;
+    document.getElementById("total").value = VEF(document.getElementById("total").value).format();
     msg();
 }
 
