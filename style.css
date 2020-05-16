@@ -161,6 +161,17 @@ p{
 	-webkit-text-fill-color: #000;
 	opacity: 1;
 }
+
+.price-usd {
+	border: none;
+    background: white;
+    width: 120px;
+    color: #000;
+    -webkit-text-fill-color: #000;
+    font-size: 12px;
+    opacity: 1;
+}
+
 .price-out{
 	border: none;
 	background: white;
