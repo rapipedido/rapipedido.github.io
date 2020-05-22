@@ -36,7 +36,8 @@ function showInfo(data, tabletop) {
         //precio = item["Precio Bs F"].substring(2,item["Precio Bs F"].length-3).replace(",",'.').replace(",",'.');
         precio = VEF(item["Precio Bs F"]).format();
         precio_usd = USD(item["Precio USD"]).format();
-        if(isNumberDot(precio) && $.isNumeric(parseInt(stock))){
+        if($.isNumeric(parseInt(stock))){
+        //if(isNumberDot(precio) && $.isNumeric(parseInt(stock))){
           parsed += "<div class='item'><div class='div-item-img'>";
       		if(item["Unidades en stock"] > 0){
       			parsed += "<img class='item-img'";
