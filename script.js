@@ -1,6 +1,8 @@
 var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1KO--qj4tmVaqSnxhbgHhlx_ttqviLBzct5e9sYgDBNU/edit?usp=sharing';
 var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQcaCBt2SjGSZHUqV9TyDoV66FyYZCGr6SPNgYoyKCjpqcobDMl0ip7D9GZPpICXWqdrFM3l_tf8I_1/pub?output=csv';
 
+var phone_num = '584147660652';
+
 function init() {
     console.log("version 0.17");
     Papa.parse(publicSpreadsheetUrl, {
@@ -87,7 +89,7 @@ function process(quant, i, max){
 function msg(){
   var d = new Date();
   var months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-  var base_url = "https://wa.me/584147660652/?text="
+  var base_url = "https://wa.me/"+phone_num+"/?text="
   var msg = "*PEDIDO* - Fecha " + d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear();
   for(var y=0 ; y<document.getElementsByClassName("quant").length;y++){
     if(parseInt(document.getElementsByClassName("quant")[y].value)>0){
