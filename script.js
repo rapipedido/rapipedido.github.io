@@ -45,7 +45,7 @@ function showInfo(data, tabletop) {
             parsed +=" src='"+item.Imagen+"'></div>"; 
             parsed +="<div class='item-desc'><h3 class='desc'>"+item.Marca+" "+item.Titulo+"</h3>"; 
             parsed +="<p>"+item.Descripcion+"</p>"; 
-            parsed +="<span type='text' class='price' value='"+precio+" Bs.' disabled='True'></span><span class='price-usd'> | $"+precio_usd+"</span></div>"; 
+            parsed +="<input type='text' class='price' value='"+precio+" Bs.' disabled='True'><span class='price-usd'> | $"+precio_usd+"</span></div>"; 
             parsed +="<div class='item-qtd'><input type='button' class='btn' id='plus' value='-' onclick='process(-1,"+i+", "+stock+")' />"; 
             parsed +="<input name='quant' class='quant' size='1' type='text' value='0' disabled='True' />"; 
             parsed +="<input type='button' class='btn' id='minus' value='+' onclick='process(1,"+i+", "+stock+")'><br>"; 
@@ -98,7 +98,7 @@ function msg(){
         msg += "\r\n"+ document.getElementsByClassName("quant")[y].value + "x " + document.getElementsByClassName("desc")[y].textContent;
       }
   }
-    msg += "\r\n\r\n" + "*Total*: " + document.getElementById("total").value;
+    msg += "\r\n\r\n" + "*Total*: " + VEF(document.getElementById("total").value);
     msg += "\r\n\r\n" + "Tu pedido no está confirmado,\r\nespera una respuesta para la confirmación."
     document.getElementById("btn_img").href = base_url + encodeURIComponent(msg);
 }
