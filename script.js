@@ -86,22 +86,25 @@ function showInfo(data, tabletop) {
 }
 
 function process(quant, i, max) {
-  var val = parseInt(document.getElementsByClassName("quant")[i].value);
-  val += quant;
-  if (val < 0) {
+  // Update Available Stock
+  var qty_val = parseInt(document.getElementsByClassName("quant")[i].value);
+  qty_val += quant;
+  if (qty_val < 0) {
     document.getElementsByClassName("quant")[i].value = 0;
-  } else if (val > max) {
+  } else if (qty_val > max) {
     document.getElementsByClassName("quant")[i].value = max;
   } else {
-    document.getElementsByClassName("quant")[i].value = val;
+    document.getElementsByClassName("quant")[i].value = qty_val;
   }
-  var t = document.getElementById("total").value = 0;
+
+  // Update Total Cart Amount
+  var t = 0;
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
-    document.getElementById("total").value =
-      VEF(document.getElementById("total").value) +
+    t = VEF(document.getElementById("total").value) +
       (parseInt(document.getElementsByClassName("quant")[y].value) *
         VEF(document.getElementsByClassName("price")[y].value));
   }
+  
   // Add price to nav bar
   document.getElementById("total").value = VEF(document.getElementById("total").value).format();
 
