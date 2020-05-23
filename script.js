@@ -84,7 +84,10 @@ function process(quant, i, max){
     		parseInt(document.getElementsByClassName("quant")[y].value.replace(".",'').replace(".",'')) * 
     		VEF(document.getElementsByClassName("price")[y].value));
     }
+    // Add price to nav bar
     document.getElementById("total").value = VEF(document.getElementById("total").value).format();
+
+    // Rewrite message
     msg();
 }
 
@@ -98,9 +101,11 @@ function msg(){
         msg += "\r\n"+ document.getElementsByClassName("quant")[y].value + "x " + document.getElementsByClassName("desc")[y].textContent;
       }
   }
-    msg += "\r\n\r\n" + "*Total*: " + VEF(document.getElementById("total").value);
-    msg += "\r\n\r\n" + "Tu pedido no está confirmado,\r\nespera una respuesta para la confirmación."
-    document.getElementById("btn_img").href = base_url + encodeURIComponent(msg);
+  msg += "\r\n\r\n" + "*Total*: " + VEF(document.getElementById("total").value).format();
+  msg += "\r\n\r\n" + "Tu pedido no está confirmado,\r\nespera una respuesta para la confirmación."
+
+  // Add new text to message
+  document.getElementById("btn_img").href = base_url + encodeURIComponent(msg);
 }
 
 function isNumberDot(valor){
