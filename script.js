@@ -97,13 +97,13 @@ function process(quant, i, max) {
     document.getElementsByClassName("quant")[i].value = qty_val;
   }
 
-  // Update Total Cart Amount
+  // Recalculate Total Cart Amount
   var t = 0;
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
     console.log(t);
     console.log(VEF(document.getElementById("total").value).value);
     console.log(document.getElementsByClassName("quant")[y].value);
-    t = VEF(document.getElementById("total").value).value +
+    t = t +
       (parseInt(document.getElementsByClassName("quant")[y].value) *
         VEF(document.getElementsByClassName("price")[y].value).value);
   }
