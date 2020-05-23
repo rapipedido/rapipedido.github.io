@@ -4,10 +4,9 @@ var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQca
 var phone_num = '584147660652';
 
 //  Set up Currency.js
-const USD = value => currency(value, {formatWithSymbol: true});
+const USD = value => currency(value);
 const VEF = value => currency(value, {
   symbol: "Bs. ",
-  formatWithSymbol: true,
   precision: 0
 });
 
@@ -63,7 +62,7 @@ function showInfo(data, tabletop) {
           parsed += " src='" + item.Imagen + "'></div>";
           parsed += "<div class='item-desc'><h3 class='desc'>" + item.Marca + " " + item.Titulo + "</h3>";
           parsed += "<p>" + item.Descripcion + "</p>";
-          parsed += "<input type='text' class='price' value='" + precio + " Bs.' disabled='True'><span class='price-usd'> | $" + precio_usd + "</span></div>";
+          parsed += "<input type='text' class='price' value='" + precio.format() + "' disabled='True'><span class='price-usd'> | $" + precio_usd + "</span></div>";
           parsed += "<div class='item-qtd'><input type='button' class='btn' id='plus' value='-' onclick='process(-1," + i + ", " + stock + ")' />";
           parsed += "<input name='quant' class='quant' size='1' type='text' value='0' disabled='True' />";
           parsed += "<input type='button' class='btn' id='minus' value='+' onclick='process(1," + i + ", " + stock + ")'><br>";
