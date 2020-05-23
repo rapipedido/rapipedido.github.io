@@ -99,7 +99,7 @@ function process(quant, i, max) {
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
     document.getElementById("total").value =
       VEF(document.getElementById("total").value) +
-      (document.getElementsByClassName("quant")[y].value *
+      (parseInt(document.getElementsByClassName("quant")[y].value) *
         VEF(document.getElementsByClassName("price")[y].value));
   }
   // Add price to nav bar
