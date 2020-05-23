@@ -3,6 +3,14 @@ var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQca
 
 var phone_num = '584147660652';
 
+//  Set up Currency.js
+function USD (value) {
+  currency(value, { symbol: "$", precision: 2 });
+};
+function VEF (value) {
+  currency(value, { symbol: "Bs. ", precision: 0 });
+};
+
 function init() {
     console.log("version 0.17");
     Papa.parse(publicSpreadsheetUrl, {
@@ -15,9 +23,6 @@ function init() {
 function showInfo(data, tabletop) {
     console.log(data.data);
     $( ".spinner" ).remove();
-    //  Set up Currency.js
-    const USD = value => currency(value, { symbol: "$", precision: 2 });
-    const VEF = value => currency(value, { symbol: "Bs. ", precision: 0 });
 
     var parsed = "";
     var stock = "";
