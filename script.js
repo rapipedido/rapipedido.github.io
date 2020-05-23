@@ -100,6 +100,9 @@ function process(quant, i, max) {
   // Update Total Cart Amount
   var t = 0;
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
+    console.log(t);
+    console.log(VEF(document.getElementById("total").value).value);
+    console.log(document.getElementsByClassName("quant")[y].value);
     t = VEF(document.getElementById("total").value).value +
       (parseInt(document.getElementsByClassName("quant")[y].value) *
         VEF(document.getElementsByClassName("price")[y].value).value);
