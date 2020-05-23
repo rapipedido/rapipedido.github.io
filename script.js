@@ -4,10 +4,11 @@ var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQca
 var phone_num = '584147660652';
 
 //  Set up Currency.js
-function USD (value) {
+function USD(value) {
   currency(value, { symbol: "$", precision: 2 });
 };
-function VEF (value) {
+
+function VEF(value) {
   currency(value, { symbol: "Bs. ", precision: 0 });
 };
 
