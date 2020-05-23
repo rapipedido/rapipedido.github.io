@@ -156,7 +156,7 @@ p{
 .price{
 	border: none;
 	background: white;
-	width: 120px;
+	min-width: 60px;
 	color: #000;
 	-webkit-text-fill-color: #000;
 	opacity: 1;
@@ -165,7 +165,7 @@ p{
 .price-usd {
 	border: none;
     background: white;
-    width: 120px;
+    min-width: 60px;
     color: #000;
     -webkit-text-fill-color: #000;
     font-size: 12px;
