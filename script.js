@@ -85,12 +85,12 @@ function showInfo(data, tabletop) {
         } else { // OOS Items
           parsed += "<img class='item-img-out'";
           parsed += " src='" + item.Imagen + "' width='88' height='88'></div>";
-          parsed += "<div class='item-desc'><h3 class='desc' style='color: #555'>" + item.Marca + " " + item.Titulo + "</h3>";
-          parsed += "<p style='color: #555'>" + item.Descripcion + "</p>";
-          parsed += "<input type='text' class='price' style='color: #555;-webkit-text-fill-color: #555;' value='" + precio + " Bs.' disabled='true'></div>";
-          parsed += "<div class='item-qtd'><input type='button' class='btn' value='-' onclick='process(-1," + i + ", " + stock + ")'  disabled='True'/>";
+          parsed += "<div class='item-desc'><h3 class='desc outofstock'>" + item.Marca + " " + item.Titulo + "</h3>";
+          parsed += "<p class='outofstock'" + item.Descripcion + "</p>";
+          parsed += "<input type='text' class='price outofstock' value='" + precio + " Bs.' disabled='true'><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";;
+          parsed += "<div class='item-qtd'><input type='button' class='btn outofstock' value='-' onclick='process(-1," + i + ", " + stock + ")'  disabled='True'/>";
           parsed += "<input name='quant' class='quant outofstock' size='1' type='text' value='0' disabled='True' />";
-          parsed += "<input type='button' class='btn' value='+' onclick='process(1," + i + ", " + stock + ")' disabled='True'><br>";
+          parsed += "<input type='button' class='btn outofstock' value='+' onclick='process(1," + i + ", " + stock + ")' disabled='True'><br>";
           parsed += "</div></div>";
         }
         i++;

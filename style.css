@@ -286,7 +286,7 @@ input.btn {
 	height: 24px;
 }
 
-.price {
+input.price {
 	border: none;
 	background: white;
 	min-width: 60px;
@@ -295,7 +295,7 @@ input.btn {
 	opacity: 1;
 }
 
-.price-usd {
+input.price-usd {
 	border: none;
 	background: white;
 	width: 30px;
