@@ -76,7 +76,7 @@ function showInfo(data, tabletop) {
         parsed += "<div class='item'><div class='div-item-img'>";
         if (item["Unidades en stock"] > 0) {
           parsed += "<img class='item-img'";
-          parsed += " src='" + item.Imagen + "'></div>";
+          parsed += " src='https://res.cloudinary.com/ddlwl1tmz/image/fetch/" + item.Imagen + "'></div>";
           parsed += "<div class='item-desc'><h3 class='desc'>" + item.Marca + " " + item.Titulo + "</h3>";
           parsed += "<p>" + item.Descripcion + "</p>";
           parsed += "<input type='text' name=" + item.Titulo + " class='price' value='" + precio + "' disabled='True'><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";
