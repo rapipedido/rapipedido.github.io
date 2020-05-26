@@ -293,9 +293,10 @@ input.price {
 	color: #000;
 	-webkit-text-fill-color: #000;
 	opacity: 1;
+	font-size: 12px;
 }
 
-input.price-usd {
+input.price-secondary {
 	border: none;
 	background: white;
 	width: 30px;
