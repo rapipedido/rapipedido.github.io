@@ -26,7 +26,7 @@ const VEF_with_symbol = value => currency(value, {
 });
 
 function init() {
-  console.log("version 0.17");
+  console.log("version 0.18");
   Papa.parse(publicSpreadsheetUrl, {
     download: true,
     header: true,
