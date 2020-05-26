@@ -116,7 +116,7 @@ function process(update_delta, i, max) {
   // Recalculate Total Cart Amount
   var t = 0;
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
-    console.log("VEF Amount:" + VEF_with_symbol(document.getElementsByClassName("price")[y]) + " - Pre-parsing: " + document.getElementsByClassName("price")[y].value);
+    console.log("VEF Amount:" + VEF_with_symbol(document.getElementsByClassName("price")[y].value) + " - Pre-parsing: " + document.getElementsByClassName("price")[y].value);
     console.log("Y:" + y + " Total:" + t)
     t = t +
       (parseInt(document.getElementsByClassName("quant")[y].value) *
