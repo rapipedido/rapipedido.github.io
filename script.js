@@ -9,7 +9,7 @@ const USD = value => currency(value, {
   precision: 2
 });
 const VEF = value => currency(value, {
-  symbol: "Bs. ",
+  symbol: "Bs.",
   formatWithSymbol: false,
   precision: 0
 });
@@ -20,7 +20,7 @@ const USD_with_symbol = value => currency(value, {
 });
 
 const VEF_with_symbol = value => currency(value, {
-  symbol: "Bs. ",
+  symbol: "Bs.",
   formatWithSymbol: true,
   precision: 0
 });

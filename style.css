@@ -289,7 +289,7 @@ input.btn {
 input.price {
 	border: none;
 	background: white;
-	width: 60px;
+	width: 80px;
 	color: #000;
 	-webkit-text-fill-color: #000;
 	opacity: 1;
@@ -371,6 +371,10 @@ input.price-secondary {
 input.outofstock {
 	color: #555;
 	-webkit-text-fill-color: #555;
+}
+
+.outofstock {
+	color: #555;
 }
 
 #btn_txt {
