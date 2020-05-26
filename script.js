@@ -117,6 +117,7 @@ function process(update_delta, i, max) {
   var t = 0;
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
     console.log("VEF Amount:" + VEF(document.getElementsByClassName("price")[y].value));
+    console.log("Y:" + y + " Total:" + t)
     t = t +
       (parseInt(document.getElementsByClassName("quant")[y].value) *
         VEF(document.getElementsByClassName("price")[y].value).value);
