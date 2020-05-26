@@ -77,7 +77,7 @@ function showInfo(data, tabletop) {
           parsed += " src='" + item.Imagen + "'></div>";
           parsed += "<div class='item-desc'><h3 class='desc'>" + item.Marca + " " + item.Titulo + "</h3>";
           parsed += "<p>" + item.Descripcion + "</p>";
-          parsed += "<input type='text' class='price' value='" + precio + "' disabled='True'><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";
+          parsed += "<input type='text' name=" + item.Titulo + " class='price' value='" + precio + "' disabled='True'><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";
           parsed += "<div class='item-qtd'><input type='button' class='btn' id='plus' value='-' onclick='process(-1," + i + ", " + stock + ")' />";
           parsed += "<input name='quant' class='quant' size='1' type='text' value='0' disabled='True' />";
           parsed += "<input type='button' class='btn' id='minus' value='+' onclick='process(1," + i + ", " + stock + ")'><br>";
@@ -89,7 +89,7 @@ function showInfo(data, tabletop) {
           parsed += "<p style='color: #555'>" + item.Descripcion + "</p>";
           parsed += "<input type='text' class='price' style='color: #555;-webkit-text-fill-color: #555;' value='" + precio + " Bs.' disabled='true'></div>";
           parsed += "<div class='item-qtd'><input type='button' class='btn' value='-' onclick='process(-1," + i + ", " + stock + ")'  disabled='True'/>";
-          parsed += "<input name='quant' class='quant' style='color: #555;-webkit-text-fill-color: #555;' size='1' type='text' value='0' disabled='True' />";
+          parsed += "<input name='quant' class='quant outofstock' size='1' type='text' value='0' disabled='True' />";
           parsed += "<input type='button' class='btn' value='+' onclick='process(1," + i + ", " + stock + ")' disabled='True'><br>";
           parsed += "</div></div>";
         }

@@ -364,6 +364,11 @@ input.btn {
 	opacity: 1;
 }
 
+input.outofstock {
+	color: #555;
+	-webkit-text-fill-color: #555;
+}
+
 #btn_txt {
 	margin-left: 10px;
 }
