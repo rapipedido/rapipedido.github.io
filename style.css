@@ -216,7 +216,7 @@ p {
 	padding: 10px 0px;
 }
 
-.btn {
+input.btn {
 	font-size: 16px;
 	text-align: center;
 	background: white;

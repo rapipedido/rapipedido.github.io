@@ -4,9 +4,24 @@ var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQca
 var phone_num = '584147660652';
 
 //  Set up Currency.js
-const USD = value => currency(value);
+const USD = value => currency(value, {
+  formatWithSymbol: false,
+  precision: 2
+});
 const VEF = value => currency(value, {
   symbol: "Bs. ",
+  formatWithSymbol: false,
+  precision: 0
+});
+
+const USD_with_symbol = value => currency(value, {
+  formatWithSymbol: true,
+  precision: 2
+});
+
+const VEF_with_symbol = value => currency(value, {
+  symbol: "Bs. ",
+  formatWithSymbol: true,
   precision: 0
 });
 
@@ -62,7 +77,7 @@ function showInfo(data, tabletop) {
           parsed += " src='" + item.Imagen + "'></div>";
           parsed += "<div class='item-desc'><h3 class='desc'>" + item.Marca + " " + item.Titulo + "</h3>";
           parsed += "<p>" + item.Descripcion + "</p>";
-          parsed += "<input type='text' class='price' value='" + precio + "' disabled='True'><input class='price-secondary' value='$" + precio_secondary + "' ' disabled='True'></div>";
+          parsed += "<input type='text' class='price' value='" + precio + "' disabled='True'><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";
           parsed += "<div class='item-qtd'><input type='button' class='btn' id='plus' value='-' onclick='process(-1," + i + ", " + stock + ")' />";
           parsed += "<input name='quant' class='quant' size='1' type='text' value='0' disabled='True' />";
           parsed += "<input type='button' class='btn' id='minus' value='+' onclick='process(1," + i + ", " + stock + ")'><br>";
@@ -109,7 +124,7 @@ function process(quant, i, max) {
   }
 
   // Add price to nav bar
-  document.getElementById("total-primary").value = VEF(t).format();
+  document.getElementById("total-primary").value = VEF_with_symbol(t).format();
 
   // Recalculate Total Cart Amount - Secondary 
   var t_secondary = 0;
@@ -123,7 +138,7 @@ function process(quant, i, max) {
   }
 
   // Add price to nav bar - Secondary 
-  document.getElementById("total-primary").value = USD(t_secondary).format();
+  document.getElementById("total-primary").value = USD_with_symbol(t_secondary).format();
 
   // Rewrite message
   msg();
@@ -139,8 +154,8 @@ function msg() {
       msg += "\r\n" + document.getElementsByClassName("quant")[y].value + "x " + document.getElementsByClassName("desc")[y].textContent;
     }
   }
-  msg += "\r\n\r\n" + "*Total*: " + VEF(document.getElementById("total-primary").value).format();
-  msg += " | " + USD(document.getElementById("total-secondary").value).format();
+  msg += "\r\n\r\n" + "*Total*: " + VEF_with_symbol(document.getElementById("total-primary").value).format();
+  msg += " | " + USD_with_symbol(document.getElementById("total-secondary").value).format();
   msg += "\r\n\r\n" + "Tu pedido no está confirmado,\r\nespera una respuesta para la confirmación."
 
   // Add new text to message
