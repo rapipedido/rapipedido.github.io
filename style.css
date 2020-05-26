@@ -289,21 +289,23 @@ input.btn {
 input.price {
 	border: none;
 	background: white;
-	width: 30px;
+	width: 60px;
 	color: #000;
 	-webkit-text-fill-color: #000;
 	opacity: 1;
 	font-size: 12px;
+	float: left;
 }
 
 input.price-secondary {
 	border: none;
 	background: white;
-	width: 30px;
+	width: 60px;
 	color: grey;
 	-webkit-text-fill-color: grey;
-	font-size: 10px;
+	font-size: 12px;
 	opacity: 1;
+	float: left;
 }
 
 .price-out {
@@ -334,7 +336,7 @@ input.price-secondary {
 #total-primary {
 	display: block;
 	border: none;
-	width: 200px;
+	width: 100px;
 	font-size: 16px;
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -349,9 +351,9 @@ input.price-secondary {
 }
 
 #total-secondary {
-	display: block;
+	display: inline;
 	border: none;
-	width: 200px;
+	width: 100px;
 	font-size: 12px;
 	margin-top: 10px;
 	margin-bottom: 10px;
