@@ -138,7 +138,7 @@ function process(quant, i, max) {
   }
 
   // Add price to nav bar - Secondary 
-  document.getElementById("total-primary").value = USD_with_symbol(t_secondary).format();
+  document.getElementById("total-secondary").value = USD_with_symbol(t_secondary).format();
 
   // Rewrite message
   msg();
