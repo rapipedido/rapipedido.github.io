@@ -77,7 +77,7 @@ function showInfo(data, tabletop) {
           parsed += " src='" + item.Imagen + "'></div>";
           parsed += "<div class='item-desc'><h3 class='desc'>" + item.Marca + " " + item.Titulo + "</h3>";
           parsed += "<p>" + item.Descripcion + "</p>";
-          parsed += "<input type='text' name=" + item.Titulo + " class='price' value='" + precio + "' disabled='True'><span>|</span><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";
+          parsed += "<input type='text' name=" + item.Titulo + " class='price' value='" + precio + "' disabled='True'><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";
           parsed += "<div class='item-qtd'><input type='button' class='btn' id='minus' value='-' onclick='process(-1," + i + ", " + stock + ")' />";
           parsed += "<input name='quant' class='quant' size='1' type='text' value='0' disabled='True' />";
           parsed += "<input type='button' class='btn' id='plus' value='+' onclick='process(1," + i + ", " + stock + ")'><br>";
@@ -87,7 +87,7 @@ function showInfo(data, tabletop) {
           parsed += " src='" + item.Imagen + "' width='88' height='88'></div>";
           parsed += "<div class='item-desc'><h3 class='desc outofstock'>" + item.Marca + " " + item.Titulo + "</h3>";
           parsed += "<p class='outofstock'>" + item.Descripcion + "</p>";
-          parsed += "<input type='text' class='price outofstock' value='" + precio + "' disabled='true'><span>|</span><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";;
+          parsed += "<input type='text' class='price outofstock' value='" + precio + "' disabled='true'><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";;
           parsed += "<div class='item-qtd'><input type='button' class='btn outofstock' onclick='process(0," + i + ", " + stock + ")'  disabled='True'/>";
           parsed += "<input name='quant' class='quant outofstock' size='1' type='text' value='0' disabled='True' />";
           parsed += "<input type='button' class='btn outofstock' onclick='process(0," + i + ", " + stock + ")' disabled='True'><br>";
