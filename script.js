@@ -78,9 +78,9 @@ function showInfo(data, tabletop) {
           parsed += "<div class='item-desc'><h3 class='desc'>" + item.Marca + " " + item.Titulo + "</h3>";
           parsed += "<p>" + item.Descripcion + "</p>";
           parsed += "<input type='text' name=" + item.Titulo + " class='price' value='" + precio + "' disabled='True'><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";
-          parsed += "<div class='item-qtd'><input type='button' class='btn' id='plus' value='-' onclick='process(-1," + i + ", " + stock + ")' />";
+          parsed += "<div class='item-qtd'><input type='button' class='btn' id='minus' value='-' onclick='process(-1," + i + ", " + stock + ")' />";
           parsed += "<input name='quant' class='quant' size='1' type='text' value='0' disabled='True' />";
-          parsed += "<input type='button' class='btn' id='minus' value='+' onclick='process(1," + i + ", " + stock + ")'><br>";
+          parsed += "<input type='button' class='btn' id='plus' value='+' onclick='process(1," + i + ", " + stock + ")'><br>";
           parsed += "</div></div>";
         } else { // OOS Items
           parsed += "<img class='item-img-out'";
@@ -88,9 +88,9 @@ function showInfo(data, tabletop) {
           parsed += "<div class='item-desc'><h3 class='desc outofstock'>" + item.Marca + " " + item.Titulo + "</h3>";
           parsed += "<p class='outofstock'>" + item.Descripcion + "</p>";
           parsed += "<input type='text' class='price outofstock' value='" + precio + " Bs.' disabled='true'><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";;
-          parsed += "<div class='item-qtd'><input type='button' class='btn outofstock' value='-' onclick='process(0," + i + ", " + stock + ")'  disabled='True'/>";
+          parsed += "<div class='item-qtd'><input type='button' class='btn outofstock' onclick='process(0," + i + ", " + stock + ")'  disabled='True'/>";
           parsed += "<input name='quant' class='quant outofstock' size='1' type='text' value='0' disabled='True' />";
-          parsed += "<input type='button' class='btn outofstock' value='+' onclick='process(0," + i + ", " + stock + ")' disabled='True'><br>";
+          parsed += "<input type='button' class='btn outofstock' onclick='process(0," + i + ", " + stock + ")' disabled='True'><br>";
           parsed += "</div></div>";
         }
         i++;
@@ -100,17 +100,17 @@ function showInfo(data, tabletop) {
   document.getElementById('lista').innerHTML = parsed;
 }
 
-function process(quant, i, max) {
+function process(update_delta, i, max) {
   // Update Available Stock
-  var qty_val = parseInt(document.getElementsByClassName("quant")[i].value);
-  qty_val += quant;
-  console.log("QTY Value: " + qty_val);
-  if (qty_val < 0) {
+  var qty_available = parseInt(document.getElementsByClassName("quant")[i].value);
+  qty_available += update_delta;
+  console.log("QTY Available after click: " + qty_available);
+  if (qty_available < 0) {
     document.getElementsByClassName("quant")[i].value = 0;
-  } else if (qty_val > max) {
+  } else if (qty_available > max) {
     document.getElementsByClassName("quant")[i].value = max;
   } else {
-    document.getElementsByClassName("quant")[i].value = qty_val;
+    document.getElementsByClassName("quant")[i].value = qty_available;
   }
 
   // Recalculate Total Cart Amount
