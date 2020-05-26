@@ -86,7 +86,7 @@ function showInfo(data, tabletop) {
           parsed += "<img class='item-img-out'";
           parsed += " src='" + item.Imagen + "' width='88' height='88'></div>";
           parsed += "<div class='item-desc'><h3 class='desc outofstock'>" + item.Marca + " " + item.Titulo + "</h3>";
-          parsed += "<p class='outofstock'" + item.Descripcion + "</p>";
+          parsed += "<p class='outofstock'>" + item.Descripcion + "</p>";
           parsed += "<input type='text' class='price outofstock' value='" + precio + " Bs.' disabled='true'><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";;
           parsed += "<div class='item-qtd'><input type='button' class='btn outofstock' value='-' onclick='process(0," + i + ", " + stock + ")'  disabled='True'/>";
           parsed += "<input name='quant' class='quant outofstock' size='1' type='text' value='0' disabled='True' />";
