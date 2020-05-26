@@ -130,8 +130,9 @@ function process(quant, i, max) {
   var t_secondary = 0;
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
     console.log(t_secondary);
-    console.log(USD(document.getElementById("total-secondary").value).value);
-    console.log(document.getElementsByClassName("quant")[y].value);
+    console.log(document.getElementById("total-secondary"));
+    console.log(document.getElementsByClassName("quant")[y]);
+
     t_secondary = t_secondary +
       (parseInt(document.getElementsByClassName("quant")[y].value) *
         USD(document.getElementsByClassName("price-secondary")[y].value).value);
