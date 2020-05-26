@@ -67,8 +67,8 @@ function showInfo(data, tabletop) {
     $.trim(item.Descripcion = item.Descripcion);
     if (validProduct(item)) {
       stock = item["Unidades en stock"];
-      precio = VEF(item["Precio Bs F"]).format();
-      precio_secondary = USD(item["Precio USD"]).format();
+      precio = VEF_with_symbol(item["Precio Bs F"]).format();
+      precio_secondary = USD_with_symbol(item["Precio USD"]).format();
       if ($.isNumeric(parseInt(stock))) {
         //if(isNumberDot(precio) && $.isNumeric(parseInt(stock))){
         parsed += "<div class='item'><div class='div-item-img'>";
@@ -115,9 +115,6 @@ function process(quant, i, max) {
   // Recalculate Total Cart Amount
   var t = 0;
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
-    console.log(t);
-    console.log(VEF(document.getElementById("total-primary").value).value);
-    console.log(document.getElementsByClassName("quant")[y].value);
     t = t +
       (parseInt(document.getElementsByClassName("quant")[y].value) *
         VEF(document.getElementsByClassName("price")[y].value).value);
@@ -129,10 +126,6 @@ function process(quant, i, max) {
   // Recalculate Total Cart Amount - Secondary 
   var t_secondary = 0;
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
-    console.log(t_secondary);
-    console.log(document.getElementById("total-secondary"));
-    console.log(document.getElementsByClassName("quant")[y]);
-
     t_secondary = t_secondary +
       (parseInt(document.getElementsByClassName("quant")[y].value) *
         USD(document.getElementsByClassName("price-secondary")[y].value).value);
@@ -155,12 +148,12 @@ function msg() {
       msg += "\r\n" + document.getElementsByClassName("quant")[y].value + "x " + document.getElementsByClassName("desc")[y].textContent;
     }
   }
-  msg += "\r\n\r\n" + "*Total*: " + VEF_with_symbol(document.getElementById("total-primary").value).format();
+  msg += "\r\n\r\n" + "*Total*: " + VEF_with_symbol(document.getElementById("total").value).format();
   msg += " | " + USD_with_symbol(document.getElementById("total-secondary").value).format();
   msg += "\r\n\r\n" + "Tu pedido no está confirmado,\r\nespera una respuesta para la confirmación."
 
   // Add new text to message
-  document.getElementById("btn_img").href = base_url + encodeURIComponent(msg);
+  document.getElementById("btn_order").href = base_url + encodeURIComponent(msg);
 }
 
 window.addEventListener('DOMContentLoaded', init)
