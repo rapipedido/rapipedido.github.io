@@ -120,7 +120,7 @@ function process(update_delta, i, max) {
     console.log("Y:" + y + " Total:" + t)
     t = t +
       (parseInt(document.getElementsByClassName("quant")[y].value) *
-        VEF(document.getElementsByClassName("price")[y].value).value);
+        VEF_with_symbol(document.getElementsByClassName("price")[y].value).value);
   };
 
   // Add price to nav bar
@@ -131,7 +131,7 @@ function process(update_delta, i, max) {
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
     t_secondary = t_secondary +
       (parseInt(document.getElementsByClassName("quant")[y].value) *
-        USD(document.getElementsByClassName("price-secondary")[y].value).value);
+        USD_with_symbol(document.getElementsByClassName("price-secondary")[y].value).value);
   }
 
   // Add price to nav bar - Secondary 
