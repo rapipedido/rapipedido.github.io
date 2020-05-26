@@ -114,7 +114,7 @@ function process(quant, i, max) {
   // Recalculate Total Cart Amount - Secondary 
   var t_secondary = 0;
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
-    console.log(t);
+    console.log(t_secondary);
     console.log(USD(document.getElementById("total-secondary").value).value);
     console.log(document.getElementsByClassName("quant")[y].value);
     t_secondary = t_secondary +
@@ -122,6 +122,8 @@ function process(quant, i, max) {
         USD(document.getElementsByClassName("price-secondary")[y].value).value);
   }
 
+  // Add price to nav bar - Secondary 
+  document.getElementById("total-primary").value = USD(t_secondary).format();
 
   // Rewrite message
   msg();
@@ -138,6 +140,7 @@ function msg() {
     }
   }
   msg += "\r\n\r\n" + "*Total*: " + VEF(document.getElementById("total-primary").value).format();
+  msg += " | " + USD(document.getElementById("total-secondary").value).format();
   msg += "\r\n\r\n" + "Tu pedido no está confirmado,\r\nespera una respuesta para la confirmación."
 
   // Add new text to message
