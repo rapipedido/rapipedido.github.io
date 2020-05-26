@@ -104,6 +104,7 @@ function process(quant, i, max) {
   // Update Available Stock
   var qty_val = parseInt(document.getElementsByClassName("quant")[i].value);
   qty_val += quant;
+  console.log("QTY Value: " + qty_val);
   if (qty_val < 0) {
     document.getElementsByClassName("quant")[i].value = 0;
   } else if (qty_val > max) {
@@ -115,7 +116,7 @@ function process(quant, i, max) {
   // Recalculate Total Cart Amount
   var t = 0;
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
-    console.log(VEF(document.getElementsByClassName("price")[y].value).value);
+    console.log("VEF Amount:" + VEF(document.getElementsByClassName("price")[y].value));
     t = t +
       (parseInt(document.getElementsByClassName("quant")[y].value) *
         VEF(document.getElementsByClassName("price")[y].value).value);
