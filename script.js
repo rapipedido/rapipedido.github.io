@@ -149,7 +149,7 @@ function msg() {
       msg += "\r\n" + document.getElementsByClassName("quant")[y].value + "x " + document.getElementsByClassName("desc")[y].textContent;
     }
   }
-  msg += "\r\n\r\n" + "*Total*: " + VEF_with_symbol(document.getElementById("total").value).format();
+  msg += "\r\n\r\n" + "*Total*: " + VEF_with_symbol(document.getElementById("total-primary").value).format();
   msg += " | " + USD_with_symbol(document.getElementById("total-secondary").value).format();
   msg += "\r\n\r\n" + "Tu pedido no está confirmado,\r\nespera una respuesta para la confirmación."
 
