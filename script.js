@@ -88,9 +88,9 @@ function showInfo(data, tabletop) {
           parsed += "<div class='item-desc'><h3 class='desc outofstock'>" + item.Marca + " " + item.Titulo + "</h3>";
           parsed += "<p class='outofstock'" + item.Descripcion + "</p>";
           parsed += "<input type='text' class='price outofstock' value='" + precio + " Bs.' disabled='true'><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";;
-          parsed += "<div class='item-qtd'><input type='button' class='btn outofstock' value='-' onclick='process(-1," + i + ", " + stock + ")'  disabled='True'/>";
+          parsed += "<div class='item-qtd'><input type='button' class='btn outofstock' value='-' onclick='process(0," + i + ", " + stock + ")'  disabled='True'/>";
           parsed += "<input name='quant' class='quant outofstock' size='1' type='text' value='0' disabled='True' />";
-          parsed += "<input type='button' class='btn outofstock' value='+' onclick='process(1," + i + ", " + stock + ")' disabled='True'><br>";
+          parsed += "<input type='button' class='btn outofstock' value='+' onclick='process(0," + i + ", " + stock + ")' disabled='True'><br>";
           parsed += "</div></div>";
         }
         i++;
@@ -115,6 +115,7 @@ function process(quant, i, max) {
   // Recalculate Total Cart Amount
   var t = 0;
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
+    console.log(VEF(document.getElementsByClassName("price")[y].value).value);
     t = t +
       (parseInt(document.getElementsByClassName("quant")[y].value) *
         VEF(document.getElementsByClassName("price")[y].value).value);
