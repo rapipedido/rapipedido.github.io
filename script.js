@@ -34,6 +34,24 @@ function init() {
     header: true,
     complete: showInfo
   })
+  // Facebook Pixel Configuration
+  // Initiate Checkout
+  var button = document.getElementById("btn_order");
+  button.addEventListener(
+    "click", 
+    function() { 
+      fbq("track", "InitiateCheckout");          
+    },
+    false
+  );
+
+  // Add to cart
+  document.querySelectorAll(".btnplus").forEach(item => {
+    item.addEventListener("click", event => {
+      fbq("track", "AddToCart");
+    })
+  });
+
 }
 
 function validProduct(item) {
@@ -162,23 +180,4 @@ function msg() {
 }
 
 
-
 window.addEventListener('DOMContentLoaded', init)
-
-// Facebook Pixel Configuration
-// Initiate Checkout
-var button = document.getElementById("btn_order");
-button.addEventListener(
-  "click", 
-  function() { 
-    fbq("track", "InitiateCheckout");          
-  },
-  false
-);
-
-// Add to cart
-document.querySelectorAll(".btnplus").forEach(item => {
-  item.addEventListener("click", event => {
-    fbq("track", "AddToCart");
-  })
-});
