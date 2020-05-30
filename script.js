@@ -163,19 +163,19 @@ function msg() {
 
 // Facebook Pixel Configuration
 // Initiate Checkout
-var button = document.getElementById('btn_order');
+var button = document.getElementById("btn_order");
 button.addEventListener(
-  'click', 
+  "click", 
   function() { 
-    fbq('track', 'InitiateCheckout');          
+    fbq("track", "InitiateCheckout");          
   },
   false
 );
 
 // Add to cart
-document.querySelectorAll('.btnplus').forEach(item => {
-  item.addEventListener('click', event => {
-    fbq('track', 'AddToCart');
+document.querySelectorAll(".btnplus").forEach(item => {
+  item.addEventListener("click", event => {
+    fbq("track", "AddToCart");
   })
 });
 
