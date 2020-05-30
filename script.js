@@ -82,7 +82,7 @@ function showInfo(data, tabletop) {
           parsed += "<input type='text' name=" + item.Titulo + " class='price' value='" + precio + "' disabled='True'><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";
           parsed += "<div class='item-qtd'><input type='button' class='btn' id='minus' value='-' onclick='process(-1," + i + ", " + stock + ")' />";
           parsed += "<input name='quant' class='quant' size='1' type='text' value='0' disabled='True' />";
-          parsed += "<input type='button' class='btn' id='plus' value='+' onclick='process(1," + i + ", " + stock + ")'><br>";
+          parsed += "<input type='button' class='btn btnplus' id='plus' value='+' onclick='process(1," + i + ", " + stock + ")'><br>";
           parsed += "</div></div>";
         } else { // OOS Items
           parsed += "<img class='item-img-out'";
@@ -160,5 +160,23 @@ function msg() {
   // Add new text to message
   document.getElementById("btn_order").href = base_url + encodeURIComponent(msg);
 }
+
+// Facebook Pixel Configuration
+// Initiate Checkout
+var button = document.getElementById('btn_order');
+button.addEventListener(
+  'click', 
+  function() { 
+    fbq('track', 'InitiateCheckout');          
+  },
+  false
+);
+
+// Add to cart
+document.querySelectorAll('.btnplus').forEach(item => {
+  item.addEventListener('click', event => {
+    fbq('track', 'AddToCart');
+  })
+});
 
 window.addEventListener('DOMContentLoaded', init)
