@@ -161,6 +161,10 @@ function msg() {
   document.getElementById("btn_order").href = base_url + encodeURIComponent(msg);
 }
 
+
+
+window.addEventListener('DOMContentLoaded', init)
+
 // Facebook Pixel Configuration
 // Initiate Checkout
 var button = document.getElementById("btn_order");
@@ -178,5 +182,3 @@ document.querySelectorAll(".btnplus").forEach(item => {
     fbq("track", "AddToCart");
   })
 });
-
-window.addEventListener('DOMContentLoaded', init)
