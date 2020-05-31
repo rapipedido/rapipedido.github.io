@@ -156,12 +156,22 @@ p {
 	overflow: hidden;
 }
 
-.div-item-img {}
+.div-item-img {
+	min-width: 88px;
+	min-height: 88px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .item-img {
-	width: 88px;
-	height: 88px;
-	border-radius: 10px;
+	max-width: 88px;
+    max-height: 88px;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+    margin: auto;
+	display: block;
 }
 
 .item-img-out {
