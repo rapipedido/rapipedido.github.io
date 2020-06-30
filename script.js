@@ -1,7 +1,7 @@
 
 // Custom store variables go here
 var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1KO--qj4tmVaqSnxhbgHhlx_ttqviLBzct5e9sYgDBNU/edit?usp=sharing';
-var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQcaCBt2SjGSZHUqV9TyDoV66FyYZCGr6SPNgYoyKCjpqcobDMl0ip7D9GZPpICXWqdrFM3l_tf8I_1/pub?output=csv';
+var publicSpreadsheetUrl = 'https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vQcaCBt2SjGSZHUqV9TyDoV66FyYZCGr6SPNgYoyKCjpqcobDMl0ip7D9GZPpICXWqdrFM3l_tf8I_1/pub?output=csv';
 
 var phone_num = '584147660652';
 
@@ -31,6 +31,7 @@ function init() {
   console.log("version 0.18");
   Papa.parse(publicSpreadsheetUrl, {
     download: true,
+    downloadRequestHeaders: {'origin': 'x-requested-with'},
     header: true,
     complete: showInfo
   })
