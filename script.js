@@ -31,8 +31,8 @@ function init() {
   console.log("version 0.18");
   Papa.parse(publicSpreadsheetUrl, {
     download: true,
-    downloadRequestHeaders: {'origin': 'x-requested-with'},
     header: true,
+    downloadRequestHeaders: {'origin': 'x-requested-with'},
     complete: showInfo
   })
   // Facebook Pixel Configuration
