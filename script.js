@@ -3,6 +3,9 @@
 var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1KO--qj4tmVaqSnxhbgHhlx_ttqviLBzct5e9sYgDBNU/edit?usp=sharing';
 var publicSpreadsheetUrl = 'https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vQcaCBt2SjGSZHUqV9TyDoV66FyYZCGr6SPNgYoyKCjpqcobDMl0ip7D9GZPpICXWqdrFM3l_tf8I_1/pub?output=csv';
 
+var publicSpreadsheetUrl = 'https://storage.googleapis.com/mobicompra-public/rapipedido_prod.csv';
+
+
 var phone_num = '584147660652';
 
 //  Set up Currency.js
