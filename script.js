@@ -3,7 +3,7 @@
 var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1KO--qj4tmVaqSnxhbgHhlx_ttqviLBzct5e9sYgDBNU/edit?usp=sharing';
 var publicSpreadsheetUrl = 'https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vQcaCBt2SjGSZHUqV9TyDoV66FyYZCGr6SPNgYoyKCjpqcobDMl0ip7D9GZPpICXWqdrFM3l_tf8I_1/pub?output=csv';
 
-var publicSpreadsheetUrl = 'https://storage.googleapis.com/mobicompra-public/rapipedido_prod.csv';
+var publicSpreadsheetUrl = 'https://storage.googleapis.com/mobicompra-public/rapipedido_prod.csv'+"?rand="+Math.floor(Math.random() * 100000);
 
 
 var phone_num = '584147660652';
@@ -98,7 +98,7 @@ function showInfo(data, tabletop) {
         parsed += "<div class='item'><div class='div-item-img'>";
         if (item["Unidades en stock"] > 0) {
           parsed += "<img class='item-img'";
-          parsed += " src='" + item.Imagen + "'></div>";
+          parsed += " src='https://ik.imagekit.io/og4bb9cly5/" + encodeURIComponent(item.Imagen) + "?tr=w-200,h-200'></div>";
           parsed += "<div class='item-desc'><h3 class='desc'>" + item.Marca + " " + item.Titulo + "</h3>";
           parsed += "<p>" + item.Descripcion + "</p>";
           parsed += "<input type='text' name=" + item.Titulo + " class='price' value='" + precio + "' disabled='True'><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";
@@ -108,7 +108,7 @@ function showInfo(data, tabletop) {
           parsed += "</div></div>";
         } else { // OOS Items
           parsed += "<img class='item-img-out'";
-          parsed += " src='" + item.Imagen + "' width='88' height='88'></div>";
+          parsed += " src='https://ik.imagekit.io/og4bb9cly5/" + encodeURIComponent(item.Imagen) + "?tr=w-200,h-200' width='88' height='88'></div>";
           parsed += "<div class='item-desc'><h3 class='desc outofstock'>" + item.Marca + " " + item.Titulo + "</h3>";
           parsed += "<p class='outofstock'>" + item.Descripcion + "</p>";
           parsed += "<input type='text' class='price outofstock' value='" + precio + "' disabled='true'><input type='text' class='price-secondary' value='" + precio_secondary + "' ' disabled='True'></div>";;
